@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3301;
-
 app.use(express.static(__dirname + '/views'));
 
 app.set('view engine', "ejs");
@@ -9,7 +8,8 @@ app.set('views', "./views");
 
 app.get('/', (req, res) => {
     let posts = [
-      {
+      { 
+        id:786487635834675,
         title: 'Man must explore, and this is exploration at its greatest',
         subtitle: 'Problems look mighty small from 150 miles up',
         author: 'Thinh Le',
@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
         url: 'https://vnexpress.net/thuy-tien-neu-khong-bi-dieu-tra-toi-kho-rua-bun-nho-hat-vao-minh-4419132.html'
       },
       {
+        id:982349652936525,
         title: 'Man must explore, and this is exploration at its greatest',
         subtitle: 'Problems look mighty small from 150 miles up',
         author: 'Thinh Le',
@@ -39,6 +40,9 @@ app.get('/post', (req, res) => {
     res.render("post");
 });
 
+app.get('/register', (req, res) => {
+  res.render("register");
+});
 
 app.listen(port, () => {
     console.log(`App is listening at port ${port}`);
