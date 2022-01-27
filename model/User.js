@@ -11,10 +11,10 @@ const UserSchema = new Schema({
   password: String
 })
 
-UserSchema.pre('save',(next) => {
+UserSchema.pre('save',function (next) {
   let user = this;
   console.log(user, this);
-  bcrypt.hash('admin', 10, function(err, hash) {
+  bcrypt.hash(user.password, 10, function(err, hash) {
     // Store hash in your password DB.
     if(err) console.error(err);
     console.log(hash);

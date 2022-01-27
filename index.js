@@ -1,9 +1,9 @@
+require('./config/db.config');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3301;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
 const userRoute = require('./routes/userRoutes');
 
 app.use(express.static(__dirname + '/views'));
@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 app.set('view engine', "ejs");
 app.set('views', "./views");
 
-mongoose.connect('mongodb://localhost/cgo', {useNewUrlParser: true}, (err) => {
-  if(err) console.error(err);
-  console.log("Connect to databases");
-});
+// mongoose.connect('mongodb://localhost/cgo', {useNewUrlParser: true}, (err) => {
+//   if(err) console.error(err);
+//   console.log("Connect to databases");
+// });
 
 app.get('/', (req, res) => {
     let posts = [
