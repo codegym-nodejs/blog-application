@@ -1,5 +1,4 @@
 const express = require('express');
-
 const route = express.Router();
 
 const multer = require('multer');
@@ -16,5 +15,8 @@ route.get('/login', (req, res) => {
 });
 
 route.post('/register',upload.none(), userController.userRegister);
+route.post('/login', upload.none(), userController.userLogin);
+
+route.get('/logout', userController.userLogout);
 
 module.exports = route;

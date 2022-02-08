@@ -25,16 +25,14 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
-                    <% for (let post of posts) { %>
+                    <% for (let post of blogposts) { %>
                         <div class="post-preview">
                             <a href= <%= `/post/${post.id}` %>>
                                 <h2 class="post-title"> <%= post.title %></h2>
-                                <h3 class="post-subtitle"> <%= post.subtitle %> </h3>
+                                <h3 class="post-subtitle"> <%= post.body %> </h3>
                             </a>
                             <p class="post-meta">
-                                Posted by
-                                <a href="#!"> <%= post.author %> </a>
-                                on <%= post.postDate %>
+                                Posted on <%= post.datePosted %>
                             </p>
                         </div>
                     <!-- Divider-->
