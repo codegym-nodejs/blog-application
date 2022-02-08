@@ -12,8 +12,6 @@ exports.userRegister = async function(req, res, next) {
 exports.userLogin = async function(req, res, next) {
     let { username, password } = req.body;
     UserModel.findOne({ username: username }, (err, user) => {
-        console.log(err);
-
         if (user) {
             bcrypt.compare(password, user.password, (err, same) => {
                 if (same)
