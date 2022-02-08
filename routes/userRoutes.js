@@ -8,13 +8,15 @@ const upload = multer();
 const userController = require('../controller/userController');
 
 route.get('/register', (req, res) => {
-  res.render("register");
+    res.render("register");
 });
 
 route.get('/login', (req, res) => {
-  res.render("login");
+    res.render("login");
 });
 
-route.post('/register',upload.none(), userController.userRegister);
+
+route.post('/register', upload.none(), userController.userRegister);
+route.post('/login', upload.none(), userController.userLogin);
 
 module.exports = route;
